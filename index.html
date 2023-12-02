@@ -45,7 +45,7 @@
 					
 					<!-- Schooling -->
 					<li>
-						<a href="school.html" onmouseover="startTyping('oh! Want to know about my Schools?')" onclick="return startTyping('oh! Want to know about my Schools?');" ondblclick="startTyping('oh! Want to know about my Schools?');">
+						<a href="school.html" onmouseover="startTyping('oh! Want to know about my Schools?')" onclick="return startTyping('oh! Want to know about my Schools?');">
 							<span class="inner"></span>
 							<i class="icon-stackexchange"></i>
 						</a>
@@ -53,7 +53,7 @@
 
 					<!-- Projects -->
 					<li>
-						<a href="projects.html" onmouseover="startTyping('oh! Want to know about my Projects?')" onclick="return startTyping('oh! Want to know about my Projects?')" ondblclick="startTyping('oh! Want to know about my Projects?')">
+						<a href="projects.html" onmouseover="startTyping('oh! Want to know about my Projects?')" onclick="return startTyping('oh! Want to know about my Projects?')">
 							<span class="inner"></span>
 							<i class="icon-gears"></i>
 						</a>
@@ -62,7 +62,7 @@
 					
 					<!-- Courses -->
 					<li> 
-						<a href="courses.html" onmouseover="startTyping('oh! Want to know about my Courses?')" onclick="return startTyping('oh! Want to know about my Courses?')" ondblclick="startTyping('oh! Want to know about my Courses?')">
+						<a href="courses.html" onmouseover="startTyping('oh! Want to know about my Courses?')" onclick="return startTyping('oh! Want to know about my Courses?')">
 							<span class="inner"></span>
 							<i class="icon-book"></i>
 						</a>
@@ -70,7 +70,7 @@
 
 					<!-- Hobbies -->
 					<li> 
-						<a href="hobbies.html" onmouseover="startTyping('oh! Want to know about my Hobbies?')" onclick="return startTyping('oh! Want to know about my Hobbies?')" ondblclick="startTyping('oh! Want to know about my Hobbies?')">
+						<a href="hobbies.html" onmouseover="startTyping('oh! Want to know about my Hobbies?')" onclick="return startTyping('oh! Want to know about my Hobbies?')">
 							<span class="inner"></span>
 							<i class="icon-puzzle-piece"></i>
 						</a>
@@ -78,7 +78,7 @@
 					
 					<!-- Contacts -->
 					<li>
-						<a href="contacts.html" onmouseover="return startTyping('oh! Want to know about my Contact Information?')" onclick="return startTyping('oh! Want to know about my Contact Information?')" ondblclick="startTyping('oh! Want to know about my Contact Information?')">
+						<a href="contacts.html" onmouseover="return startTyping('oh! Want to know about my Contact Information?')" onclick="return startTyping('oh! Want to know about my Contact Information?')">
 							<span class="inner"></span>
 							<i class="icon-envelope"></i>
 						</a>
@@ -107,7 +107,7 @@
 			</article>
 			<div class="bg-img">
 				<img src="img/city3.jpg" alt="Background Image" />
-				<p class="subline"><span style="text-wrap: nowrap;">A curious explorer seeking his way,</span><span style="text-wrap: nowrap;"> stressed by a mountain of books.</span></p>
+				<p class="subline"><span style="text-wrap: nowrap;">A curious explorer seeking his way,</span> <span style="text-wrap: nowrap;">stressed by a mountain of books.</span></p>
 			</div>
 		</div><!-- /container -->
 		<script src="js/classie.js"></script>
@@ -255,11 +255,21 @@
 		</script>
 		<script>
 			let currentText = '';
-			let typingSpeed = 40;
+			let typingSpeed = 30;
 			let deleteSpeed = 15;
 			const typingContainer = document.getElementById('txt-box');
 			let typingTimeout;
 			let deletingTimeout;
+			
+			var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+			if(isMobile) {
+				typingContainer.innerHTML = "Click to see the information of button and click again to see the contents.";
+				currentText = typingContainer.innerHTML;
+			}
+			else {
+				typingContainer.innerHTML = "Hover over the buttons to see the information and click to see the contents."
+				currentText = typingContainer.innerHTML;
+			}
 
 			function startTyping(text) {
 				if (currentText !== text) {
@@ -270,11 +280,9 @@
 						typeText();
 					});
 				}
-				var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-				if(isMobile)
-					return false;
 				else
 					return true;
+				return !isMobile;
 			}
 
 			function typeText() {
