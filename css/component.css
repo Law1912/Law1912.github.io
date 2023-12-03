@@ -149,7 +149,7 @@ button.trigger span::before {
 .content img {
 	position: absolute;
 	z-index: 0;
-	bottom: 10%;
+	bottom: 15%;
 	left: 10%;
 	display: block;
 	min-width: 1%;
@@ -160,7 +160,7 @@ button.trigger span::before {
 
 .txt-box {
 	position: absolute;
-	bottom: 15%;
+	bottom: 20%;
 	left: 20%;
 	width: 70%;
 	height: 10%;
@@ -285,10 +285,10 @@ button.trigger span::before {
 	transform: translateY(80%);
 }
 
-.intro-effect-sliced .bg-img h1, .intro-effect-sliced .bg-img p {
+/* .intro-effect-sliced .bg-img h1, .intro-effect-sliced .bg-img p {
 	-webkit-transform: scale(1.2);
 	transform: scale(1.2);
-}
+} */
 
 .intro-effect-sliced.modify .bg-img h1, .intro-effect-sliced.modify .bg-img p {
 	-webkit-transform: scale(1);
@@ -319,20 +319,24 @@ button.trigger span::before {
 }
 
 /* Media Queries */
-@media screen and (max-width: 47em) {
-	.header, .content {
+@media screen and (max-width: 52em) {
+	.bg-img, .content {
 		font-size: 70%;
 	}
 }
 
-@media screen and (max-width: 27em) {
-	.header, .content {
+/* @media screen and (max-width: 27em) {
+	.bg-img, .content {
 		font-size: 50%;
 	}
 
 	button.trigger::before {
 		display: none;
 	}
+} */
+
+ul {
+	padding: 0;
 }
 
 
