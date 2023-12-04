@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title>Courses</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="courses-style.css" />
+  </head>
+  <body>
+    <h1 class="text-grey-darker mb-8 mt-0">
+        My Learning Journey
+    </h1>
+    <div id="courseList" class="flex flex-wrap -m-3">
+    </div>
+
+    <script>
+        // Array of course information
+        const courses = [
+        {
+            name: "CS330",
+            title: "Operating Systems",
+            professor: "Prof. Debadatta Mishra",
+            fromDate: "Aug’23",
+            toDate: "Nov’23",
+            website: "https://cse.iitk.ac.in/pages/CS330.html"
+          },
+          {
+            name: "CS340",
+            title: "Theory of Computation",
+            professor: "Prof. Sunil Easaw Simon",
+            fromDate: "Aug’23",
+            toDate: "Nov’23",
+            website: "https://cse.iitk.ac.in/pages/CS340.html"
+          },
+          {
+            name: "CS345",
+            title: "Algorithms -II",
+            professor: "Prof. Surender Baswana",
+            fromDate: "Aug’23",
+            toDate: "Nov’23",
+            website: "https://cse.iitk.ac.in/pages/CS345.html"
+          },
+          {
+            name: "CS771",
+            title: "Introduction to Machine Learning",
+            professor: "Prof. Piyush Rai",
+            fromDate: "Aug’23",
+            toDate: "Nov’23",
+            website: "https://cse.iitk.ac.in/pages/CS771.html"
+          },
+          {
+            name: "CS253",
+            title: "Software Development and Operations",
+            professor: "Prof. Indranil Saha",
+            fromDate: "Jan’23",
+            toDate: "Apr’23",
+            website: "https://cse.iitk.ac.in/pages/CS253.html"
+          },
+          {
+            name: "CS220",
+            title: "Computer Organisation",
+            professor: "Dr. Urbi Chaterjee",
+            fromDate: "Jan’23",
+            toDate: "Apr’23",
+            website: "https://cse.iitk.ac.in/pages/CS220.html"
+          },
+          {
+            name: "CS202",
+            title: "Logic for Computer Science",
+            professor: "Prof. Sunil Easaw Simon",
+            fromDate: "Jan’23",
+            toDate: "Apr’23",
+            website: "https://cse.iitk.ac.in/pages/CS202.html"
+          },
+          {
+            name: "CS203",
+            title: "Probability for Computer Science",
+            professor: "Prof. Rajat Mittal",
+            fromDate: "Jan’23",
+            toDate: "Apr’23",
+            website: "https://cse.iitk.ac.in/pages/CS203.html"
+          },
+          {
+            name: "CS201",
+            title: "Discrete Mathematics",
+            professor: "Prof. Nitin Saxena",
+            fromDate: "Aug’22",
+            toDate: "Nov’22",
+            website: "https://cse.iitk.ac.in/pages/CS201.html"
+          },
+          {
+            name: "ESO207",
+            title: "Data Structure and Algorithms",
+            professor: "Prof. Surender Baswana",
+            fromDate: "Aug’22",
+            toDate: "Nov’22",
+            website: "https://cse.iitk.ac.in/pages/ESO207.html"
+          },
+          {
+            name: "ESC101",
+            title: "Fundamentals of Computing",
+            professor: "Prof. Swarnendu Biswas",
+            fromDate: "",
+            toDate: "",
+            website: "https://cse.iitk.ac.in/pages/ESC101.html"
+          },
+        ];
+    
+        // Function to create a course card
+        function createCourseCard(course) {
+          const card = document.createElement("div");
+          card.className = "w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 flex flex-col p-3 scale";
+          card.innerHTML = `
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
+              <div class="bg-cover h-48">${course.name}</div>
+              <div class="p-4 flex-1 flex flex-col">
+                <h3 class="mb-4 text-2xl">${course.title}</h3>
+                <div class="text-sm flex-1">
+                  <p class="italic">I studied</p>
+                  <p class="bold text-xl">${course.name}</p>
+                  <p class="italic">under</p>
+                  <p class="text-grey-dark text-2xl">${course.professor}</p>
+                  <p class="italic">(${course.fromDate} - ${course.toDate})</p>
+                </div>
+                <a href="${course.website}" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide mt-auto">Website</a>
+              </div>
+            </div>
+          `;
+          return card;
+        }
+    
+        const courseListContainer = document.getElementById("courseList");
+    
+        courses.forEach(course => {
+          const courseCard = createCourseCard(course);
+          courseListContainer.appendChild(courseCard);
+        });
+      </script>
+  </body>
+</html>
