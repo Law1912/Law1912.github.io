@@ -3,10 +3,11 @@
     <title>Courses</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="./favicon.ico">
     <link rel="stylesheet" type="text/css" href="courses-style.css" />
   </head>
   <body>
-    <h1 class="text-grey-darker mb-8 mt-0">
+    <h1 class="mb-8 mt-0">
         My Learning Journey
     </h1>
     <div id="courseList" class="flex flex-wrap -m-3">
@@ -115,13 +116,11 @@
               <div class="p-4 flex-1 flex flex-col">
                 <h3 class="mb-4 text-2xl">${course.title}</h3>
                 <div class="text-sm flex-1">
-                  <p class="italic">I studied</p>
-                  <p class="bold text-xl">${course.name}</p>
-                  <p class="italic">under</p>
+                  <p class="italic">Studied under</p>
                   <p class="text-grey-dark text-2xl">${course.professor}</p>
                   <p class="italic">(${course.fromDate} - ${course.toDate})</p>
                 </div>
-                <a href="${course.website}" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide mt-auto">Website</a>
+                <a href="${course.website}" target="_blank" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide mt-auto">Website</a>
               </div>
             </div>
           `;
@@ -135,5 +134,9 @@
           courseListContainer.appendChild(courseCard);
         });
       </script>
+      <div id="particles-js"></div>
+      <script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+      <script src="./school-background/animations/school-script.js"></script>
   </body>
 </html>

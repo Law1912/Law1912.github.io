@@ -1,0 +1,64 @@
+/* imports */
+@import url("school-css/text-boxes.css");
+@import url("school-css/image.css");
+@import url("school-css/school-mediaquery.css");
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-size: 0;
+  background: linear-gradient(to bottom, #273747, rgba(12, 16, 230, 0.7)); 
+}
+
+/* background effect */
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: fixed;
+  top: 0px;
+  z-index:0;
+}
+
+/* fade-in effect */
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in-out forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* glow bars 
+.glowing-line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #FF0000; 
+  z-index: 30;
+  animation: glowing 2s ease-in-out infinite; 
+  transform: rotate(-87.3deg); 
+}
+
+@keyframes glowing {
+  0% {
+    opacity: 0.2;
+    box-shadow: 0 0 5px 5px #FF0000; /
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px 10px #FF0000; 
+  }
+  100% {
+    opacity: 0.2;
+    box-shadow: 0 0 5px 5px #FF0000; 
+  }
+}
+*/

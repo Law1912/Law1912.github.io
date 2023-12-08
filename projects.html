@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <title>Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="projects-style.css" />
+    <link rel="icon" type="image/png" href="./favicon.ico">
+</head>
+  <body>
+    <h1 class="mb-8 mt-0">
+        My Learning Journey
+    </h1>
+    <div id="projectList" class="flex flex-wrap -m-3">
+    </div>
+
+    <script>
+        // Array of project information
+        const projects = [
+        {
+            title: "Dhol-Baaje",
+            type: "External Project: Hackathon by Logosphere",
+            date: "Sep’23- Oct’23",
+            description: [
+            "Transformed a web2 music Next.js app to a web3 DApp, managing media on IPFS and metadata with GraphQL and Postgres.",
+            "Utilized Logosphere’s API for seamless Blockfrost, Cardano, Pinata (IPFS), Fluree Postgres, Graphql integration and facilitated browser wallet transactions through GraphQL queries."
+            ],
+            website: "https://github.com/Law1912/Dhol-Baaje",
+            keywords: ["Next.js", "web3", "DApp", "Logosphere", "IPFS", "GraphQL", "Postgres", "Blockfrost", "Cardano", "Pinata", "Fluree"]
+        },
+        {
+            title: "Portal for Market Research Firm",
+            type: "External Project: Magna Intelligence",
+            date: "Jun’23- Present",
+            description: [
+            "Developed a code in python utilizing openpyxl to migrate the spreadsheet data from the client into Postgresql Database.",
+            "Designed and developed a web application for graphical representation of data in the form of interactive charts and tables by utilization of Chart.js and used Bootstrap and Javascript with Django as Backend for better customer satisfaction.",
+            "Developing an application to ensure only authorised users who have made purchases can have access to substantial data."
+            ],
+            website: "https://github.com/Law1912/Magna",
+            keywords: ["Python", "openpyxl", "Postgresql", "Chart.js", "Bootstrap", "Javascript", "Django"]
+        },
+        {
+            title: "Unified Portal for Hall Automation",
+            type: "Course Project: Software Development and Operations, IIT Kanpur",
+            date: "Jan’23- Apr’23",
+            description: [
+            "Collaborated in a 10-member team and successfully developed a web platform for digitalizing Mess, Canteen, Booking, and Housekeeping Services in the Halls of Residence at IIT Kanpur, enhancing transparency and minimizing paperwork.",
+            "Followed Waterfall model, documented Software Requirements, Design, Implementation, Testing & User manual.",
+            "Employed Figma, HTML and CSS for frontend development, Django Framework for backend development, Django-Test Framework for unit-testing and Selenium for integration-testing, ultimately attaining a test coverage of over 90%."
+            ],
+            website: "https://github.com/divc13/Unified-Portal-For-Hall-Automation",
+            keywords: ["Web Development", "Figma", "HTML", "CSS", "Django", "Selenium", "Waterfall Model"]
+        },
+        {
+            title: "CSE Bubble : A Processor with single-cycle instruction execution",
+            type: "Course Project: Computer Organization, IIT Kanpur",
+            date: "Mar’23- Apr’23",
+            description: [
+            "Built CSE Bubble Processor in Verilog implementing instructions similar to MIPSs’ logical, arithmetic and jump statements using Finite State Machine for control signals such that each instruction is executed in a single clock cycle.",
+            "Successfully developed and executed the Bubble Sort code in Assembly Language for an integer array on CSE Bubble."
+            ],
+            website: "https://github.com/pranjalsingh4550/verilog-bubblesort-cs220",
+            keywords: ["Verilog", "MIPS", "Finite State Machine", "Assembly Language"]
+        },
+        {
+            title: "Basis of Learning",
+            type: "Science and Technology Council, IIT Kanpur",
+            date: "May’22-Jul’22",
+            description: [
+            "Created a Perceptron using Numpy, grasping the intricacies of Machine Learning through this hands-on implementation.",
+            "Implemented a Feedforward Neural Network (FNN) using Numpy and Pandas which achieved an accuracy of 0.99.",
+            "Utilized Keras to implement Recurrent Neural Network (RNN) achieving an accuracy of 0.9 on minst 784 dataset.",
+            "Utilized Python, Tensorflow to implement Convolutional Neural Network (CNN) and achieved an accuracy of 0.99."
+            ],
+            website: "https://github.com/Adi2334/Learners_BOL",
+            keywords: ["Machine Learning", "Numpy", "Pandas", "Keras", "Tensorflow", "Perceptron", "Feedforward Neural Network", "Recurrent Neural Network", "Convolutional Neural Network"]
+        },
+        {
+            title: "Python and it’s common uses",
+            type: "Association for Computing Activities, IIT Kanpur",
+            date: "May’22-Jul’22",
+            description: [
+            "Used Python argparse library to make command line utilities such as dir, mkdir, grep, find and cat with some options.",
+            "Utilized Beautifulsoup for data scraping from official IIT Kanpur website and developed Professor Search with Django."
+            ],
+            website: "https://github.com/Law1912/Python-and-it-s-common-uses",
+            keywords: ["Python", "argparse", "Beautifulsoup", "Command Line Utilities", "Web Scraping", "Django"]
+        },
+        {
+            title: "Regression Analysis",
+            type: "Stamatics, IIT Kanpur",
+            date: "Apr’22- Jul’22",
+            description: [
+            "Applied Linear Regression on Coco-cola and Pepsi share prices and observed that they converged to mean with R2 of 0.89.",
+            "Learnt and skillfully applied Non-Linear, Panel-Data and Time Series Regression on datasets acquired from Kaggle."
+            ],
+            keywords: ["Linear Regression", "Non-Linear Regression", "Panel-Data Regression", "Time Series Regression", "Kaggle"]
+        },
+        // Add more projects with similar structure
+        ];
+
+
+        // Function to create a project card
+        function createProjectCard(project) {
+            const card = document.createElement("div");
+            card.className = "w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 flex flex-col p-3";
+            card.innerHTML = `
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
+                    <div class="p-4 flex-1 flex flex-col">
+                        <h3 class="mb-4 text-2xl">${project.title}</h3>
+                        ${project.keywords ? `<p>${project.keywords.join(" | ")}</p>` : ''}
+                        <div class="text-sm appear flex-1">
+                            ${project.type ? `<p class="text-sm bold">${project.type}</p>` : ''}
+                            ${project.description ? `<ul>${project.description.map(point => `<li>${point}</li>`).join('')}</ul>` : ''}
+                            </div>
+                        ${project.date ? `<p class="italic">(${project.date})</p>` : ''}
+                        <a href="${project.website}" target="_blank" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide mt-auto">Github</a>
+                    </div>
+                </div>
+            `;
+            card.addEventListener("click", function () {
+                card.classList.toggle("scale");
+            });
+            return card;
+        }
+
+    
+        const projectListContainer = document.getElementById("projectList");
+    
+        projects.forEach(project => {
+            const projectCard = createProjectCard(project);
+            projectListContainer.appendChild(projectCard);
+        });
+      </script>
+      <div id="particles-js"></div>
+      <script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+      <script src="./school-background/animations/school-script.js"></script>
+  </body>
+</html>

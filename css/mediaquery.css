@@ -288,3 +288,9 @@
     padding-top: 3px;
   }
 }
+
+@media screen and (max-height:450px) {
+  .topPopupContainer {
+    height: 50%;
+  }
+}

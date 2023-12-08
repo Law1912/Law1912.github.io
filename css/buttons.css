@@ -1,6 +1,8 @@
 /* Buttons */
 nav {
   position: absolute;
+  width: 100%;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -15,6 +17,10 @@ nav li {
   position: relative;
   text-align: center;
   display: inline-block;
+}
+
+nav ul {
+  text-wrap: pretty;
 }
 
 /* href attribute */
