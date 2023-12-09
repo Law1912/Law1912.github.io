@@ -291,6 +291,7 @@
 		</script>
 		<script>
 			let currentText = '';
+			let textType = '';
 			let typingSpeed = 10;
 			let deleteSpeed = 5;
 			const typingContainer = document.getElementById('txt-box');
@@ -308,13 +309,15 @@
 			}
 
 			function startTyping(text) {
+				textType = text;
 				if (currentText !== text) {
 					clearTimeout(typingTimeout);
-					clearTimeout(deletingTimeout);
-					deleteText(() => {
-						currentText = text;
-						typeText();
-					});
+					if (!deletingTimeout) {
+						deleteText(() => {
+							currentText = textType;
+							typeText();
+						});
+					}
 				}
 				else
 					return true;
@@ -332,6 +335,12 @@
 					if (index <= currentText.length) {
 						typingTimeout = setTimeout(type, typingSpeed);
 					}
+					else {
+						clearTimeout(typingTimeout);
+						clearTimeout(deletingTimeout);
+						deletingTimeout = 0;
+						typingTimeout = 0;
+					}
 				}
 
 				type();
@@ -347,6 +356,8 @@
 					if (index >= 0) {
 						deletingTimeout = setTimeout(deleteChars, deleteSpeed);
 					} else {
+						clearTimeout(deletingTimeout);
+						deletingTimeout = 0;
 						callback();
 					}
 				}
