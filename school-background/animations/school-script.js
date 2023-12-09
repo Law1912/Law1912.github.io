@@ -1,5 +1,6 @@
 $.getScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js", function(){
-    particlesJS('particles-js',
+  $(".particle").each(function() {
+    particlesJS($(this).attr('id'),
       {
         "particles": {
           "number": {
@@ -110,5 +111,5 @@ $.getScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles
         }
       }
     );
-
+  });
 });

@@ -126,10 +126,10 @@
 				<div id="rightPopupContainer" class="rightPopupContainer" style="transform: translateX(100%);">
 					<div class="popupContent">
 						<h3>Connect with me!</h3>
-						<p><i class="icon-linkedin"> <a href="https://www.linkedin.com/in/soham1912/">My LinkedIn</a></i></p>
-						<p><i class="icon-twitter"> <a href="https://twitter.com/Soham_1912">My Twiiter</a></i></p>
-						<p><i class="icon-github-sign"> <a href="https://github.com/Law1912/">My Github</a></i></p>
-						<p><i class="icon-edit-sign"> <a href="mailto:sohamb21@iitk.ac.in">My Mail</a></i></p>
+						<p><i class="icon-linkedin"> <a href="https://www.linkedin.com/in/soham1912/" target="_blank">My LinkedIn</a></i></p>
+						<p><i class="icon-twitter"> <a href="https://twitter.com/Soham_1912" target="_blank">My Twiiter</a></i></p>
+						<p><i class="icon-github-sign"> <a href="https://github.com/Law1912/" target="_blank">My Github</a></i></p>
+						<p><i class="icon-edit-sign"> <a href="mailto:sohamb21@iitk.ac.in" target="_blank">My Mail</a></i></p>
 						<button onclick="closePopup('rightPopupContainer')">Close</button>
 					</div>
 				</div>
@@ -368,6 +368,11 @@
 				setTimeout(function() {
 					popupContainer.style.transform = 'translate(0, 0)';
 				}, 50);
+
+				// Add event listener to close the popup when overlay is clicked
+				overlay.addEventListener('click', function() {
+					closePopup(popupContainerId);
+				});
 			}
 
 			var foul_num = 0;
@@ -390,8 +395,8 @@
 					var guessInput = document.getElementById("guess").value.trim().toLowerCase();
 					if (guessInput === '') {
 						foul_num = foul_num + 1;
-						if (foul_num > 9) {
-							startTyping("Go To Hell");
+						if (foul_num > 5) {
+							startTyping("I would like to talk to you");
 						}
 						else if (foul_num > 1) {
 							startTyping("Foul again...");
@@ -403,19 +408,37 @@
 					else if (guessInput === 'reading' || guessInput === 'read' || guessInput === 'novel' || guessInput === 'novels') {
 						startTyping("Yes that's right! Reading novels is my hobby!");
 						correct_num = correct_num + 1;
+						foul_num = 0;
+					}
+					else if (guessInput === 'webnovel' || guessInput === 'webnovels' || guessInput === 'web-novel' || guessInput === 'web-novels') {
+						startTyping("Yes that's right! Reading webnovels is my hobby!");
+						correct_num = correct_num + 1;
+						foul_num = 0;
 					}
 					else if (guessInput === 'anime') {
 						startTyping("Yes that's right! Watching anime is my hobby!");
 						correct_num = correct_num + 1;
+						foul_num = 0;
+					}
+					else if (guessInput === 'origami') {
+						startTyping("Yes that's right! Origami has been my hobby since I was small!");
+						correct_num = correct_num + 1;
+						foul_num = 0;
+					}
+					else if (guessInput === 'manhwa' || guessInput === 'manhwas' || guessInput === 'manga' || guessInput === 'mangas' || guessInput === 'manhua' || guessInput === 'manhua') {
+						startTyping("Yes that's right! Reading "+ guessInput +" is my hobby!");
+						correct_num = correct_num + 1;
+						foul_num = 0;
 					}
 					else {
-						if (correct_num > 1) {
+						if (correct_num > 3) {
 							startTyping("You should already know that this is not my hobby");
 						}
 						else {
 							startTyping("No, " + guessInput + " is not my hobby.");
 						}
 						wrong_num = wrong_num + 1;
+						foul_num = 0;
 					}
 					document.getElementById("guess").value = '';
 				}
